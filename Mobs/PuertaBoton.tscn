@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cipk5ingdrowo"]
+
+[ext_resource type="Texture2D" uid="uid://f25rrnm46vkf" path="res://Sprites/buttondoor.png" id="1_vdo7h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0xnu"]
+size = Vector2(79, 222)
+
+[node name="PuertaBoton" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -11)
+shape = SubResource("RectangleShape2D_p0xnu")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(39.5, -22)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_vdo7h")

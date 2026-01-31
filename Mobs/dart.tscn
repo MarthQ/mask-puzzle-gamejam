@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://duqe5q0uly25p"]
+
+[ext_resource type="Script" uid="uid://bi1msv5fsys4c" path="res://Mobs/dart.gd" id="1_juip1"]
+[ext_resource type="Texture2D" uid="uid://d08hudsk15jeb" path="res://Sprites/5cc285e1912bf0edc596d14feae44fc3.png" id="2_juip1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oncxt"]
+radius = 50.1597
+
+[node name="Dart" type="RigidBody2D" groups=["darts"]]
+contact_monitor = true
+max_contacts_reported = 1000
+script = ExtResource("1_juip1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_juip1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_oncxt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

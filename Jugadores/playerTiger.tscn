@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://bcfnptef1mgeq"]
+
+[ext_resource type="Script" uid="uid://bd8h4y3ghtrxg" path="res://Jugadores/player2.gd" id="1_4cor4"]
+[ext_resource type="Script" uid="uid://d3fy0jipyxos1" path="res://Jugadores/player2_input_actions.gd" id="2_yuhi3"]
+[ext_resource type="Script" uid="uid://dapnlmeaq3ikc" path="res://Jugadores/death.gd" id="3_plwar"]
+[ext_resource type="Script" uid="uid://pvvoy4sdm2xk" path="res://Jugadores/facing.gd" id="3_vquue"]
+[ext_resource type="Texture2D" uid="uid://c20fms1h0ognh" path="res://Sprites/prota 2.png" id="4_yuhi3"]
+[ext_resource type="Texture2D" uid="uid://bmjwt7maj0ssi" path="res://Sprites/prota 2 enmascarado.png" id="5_x7rbu"]
+[ext_resource type="Script" uid="uid://dc8bui2smo84n" path="res://Jugadores/area_proteccion.gd" id="6_lo36t"]
+
+[sub_resource type="Resource" id="Resource_x7rbu"]
+script = ExtResource("2_yuhi3")
+left = &"P2 Left"
+right = &"P2 Right"
+up = &"P2 Up"
+down = &"P2 Down"
+metadata/_custom_type_script = "uid://bqg2vwbe72ef7"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_plwar"]
+radius = 70.0
+height = 322.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sweqy"]
+radius = 70.0
+height = 322.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1jxqw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_yuhi3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_x7rbu")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sweqy"]
+radius = 193.039
+
+[node name="Player" type="CharacterBody2D" groups=["player2"]]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_4cor4")
+actions = SubResource("Resource_x7rbu")
+metadata/_custom_type_script = "uid://cqkmy8lbrods8"
+metadata/_edit_group_ = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("3_plwar")
+
+[node name="HurtArea" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CapsuleShape2D_plwar")
+
+[node name="CollisionPlayer" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_sweqy")
+
+[node name="Facing" type="Node2D" parent="."]
+rotation = -3.14159
+scale = Vector2(1, -1)
+script = ExtResource("3_vquue")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Facing"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_1jxqw")
+
+[node name="AreaMask" type="Area2D" parent="."]
+script = ExtResource("6_lo36t")
+
+[node name="CollisionMask" type="CollisionShape2D" parent="AreaMask"]
+shape = SubResource("CircleShape2D_sweqy")
+disabled = true
+
+[node name="Line2D" type="Line2D" parent="AreaMask"]
+visible = false
+points = PackedVector2Array(0, 0, 100, 100)
+closed = true
+
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="Hurtbox" method="_on_body_entered"]
+[connection signal="area_entered" from="AreaMask" to="AreaMask" method="_on_area_entered"]
+[connection signal="area_exited" from="AreaMask" to="AreaMask" method="_on_area_exited"]
+[connection signal="body_entered" from="AreaMask" to="AreaMask" method="_on_body_entered"]

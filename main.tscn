@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cb5edn8jfvx1i"]
+[gd_scene load_steps=2 format=3 uid="uid://lhlosi82equ0"]
 
-[ext_resource type="PackedScene" uid="uid://0qdha5ipf358" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://0qdha5ipf358" path="res://Jugadores/playerHawk.tscn" id="1_ig7tw"]
 
 [node name="Node" type="Node"]
 

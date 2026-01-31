@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://0qdha5ipf358"]
+
+[ext_resource type="Script" uid="uid://ba0vfhhfs0x32" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://db8p3afkmobk1" path="res://player_input_actions.gd" id="2_hqtel"]
+[ext_resource type="Script" uid="uid://pvvoy4sdm2xk" path="res://facing.gd" id="3_hqtel"]
+[ext_resource type="Texture2D" uid="uid://kadkojkfvrf1" path="res://Sprites/prota 1.png" id="4_sweqy"]
+[ext_resource type="Texture2D" uid="uid://bc8xo7oa1opo7" path="res://Sprites/prota 1 enmascarado.png" id="5_2hs0m"]
+
+[sub_resource type="Resource" id="Resource_hqtel"]
+script = ExtResource("2_hqtel")
+left = &"P1 Left"
+right = &"P1 Right"
+up = &"P1 Up"
+down = &"P1 Down"
+metadata/_custom_type_script = "uid://db8p3afkmobk1"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sweqy"]
+radius = 70.0
+height = 322.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1jxqw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_sweqy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_2hs0m")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sweqy"]
+radius = 410.59
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_onrkg")
+actions = SubResource("Resource_hqtel")
+metadata/_custom_type_script = "uid://cqkmy8lbrods8"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_sweqy")
+
+[node name="Facing" type="Node2D" parent="."]
+script = ExtResource("3_hqtel")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Facing"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_1jxqw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_sweqy")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://o5cju1070a4k"]
+
+[ext_resource type="Script" uid="uid://cs4m4jwmy7s4g" path="res://Mobs/boton_plat.gd" id="1_ehwau"]
+[ext_resource type="Texture2D" uid="uid://b0b0u1bnuvfl5" path="res://Sprites/botonPlat.png" id="2_7ot3j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xp6a5"]
+radius = 34.4819
+
+[node name="Boton" type="Node2D"]
+script = ExtResource("1_ehwau")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-7, 14)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_7ot3j")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-5, -2)
+shape = SubResource("CircleShape2D_xp6a5")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

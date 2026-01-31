@@ -1,4 +1,4 @@
-class_name PlayerInputActions
+class_name Player1InputActions
 extends Resource
 
 @export var left: StringName = "P1 Left"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://nfj16nc3kg01"
+path="res://.godot/imported/ggj multiplayer gameplaay.ogg-f270562e4610e4c458bf7e394ab3c42b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Musica/ggj multiplayer gameplaay.ogg"
+dest_files=["res://.godot/imported/ggj multiplayer gameplaay.ogg-f270562e4610e4c458bf7e394ab3c42b.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

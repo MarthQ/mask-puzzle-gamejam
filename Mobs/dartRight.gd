@@ -1,9 +1,9 @@
 extends RigidBody2D
-@export var dartSpeed : float = -500
+@export var dartSpeed : float = 500
 
 func _ready() -> void:
 	gravity_scale = 0
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(5.0).timeout
 	selfDestruct()
 
 func _physics_process(delta: float) -> void:

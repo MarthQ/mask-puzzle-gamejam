@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://p7ck7bpv7fj"
+path="res://.godot/imported/ggj multiplayer tp.ogg-224899804d78d4a87eaeb39311413d8d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sonidos/ggj multiplayer tp.ogg"
+dest_files=["res://.godot/imported/ggj multiplayer tp.ogg-224899804d78d4a87eaeb39311413d8d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

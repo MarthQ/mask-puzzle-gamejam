@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://lhg5pblk0eq"]
+
+[ext_resource type="Script" uid="uid://brewr5vb0rntl" path="res://Pantallas/pass_level_1.gd" id="1_uc7xw"]
+[ext_resource type="AudioStream" uid="uid://bsydqq1q2qdvs" path="res://Musica/ggj multiplayer win.ogg" id="2_fu17s"]
+[ext_resource type="Texture2D" uid="uid://bf20jip75o2b4" path="res://BGs/vacio.png" id="2_nixem"]
+
+[node name="Pass Level1" type="Node2D"]
+script = ExtResource("1_uc7xw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(962, 542)
+texture = ExtResource("2_nixem")
+
+[node name="Next Level" type="Button" parent="."]
+offset_left = 673.0
+offset_top = 763.0
+offset_right = 1164.0
+offset_bottom = 890.0
+theme_override_font_sizes/font_size = 60
+text = "Siguiente Nivel"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 7.0
+offset_top = 71.0
+offset_right = 1921.0
+offset_bottom = 332.0
+theme_override_font_sizes/normal_font_size = 150
+text = "PASASTE..."
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 10.0
+offset_top = 279.0
+offset_right = 1920.0
+offset_bottom = 717.0
+theme_override_font_sizes/normal_font_size = 85
+text = "Pero todavía queda más por explorar.
+La voluntad de las máscaras excede la suya."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fu17s")
+volume_db = 5.0
+autoplay = true
+
+[connection signal="pressed" from="Next Level" to="." method="_on_retry_pressed"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8tpdoj7qtnpr"]
 
-[ext_resource type="Texture2D" uid="uid://hsjp1px7e0rt" path="res://Sprites/Door.png" id="1_ba8gm"]
+[ext_resource type="Texture2D" uid="uid://csblg0akxu7lk" path="res://Sprites/mobs/eagle puerta.png" id="1_gjhd3"]
 [ext_resource type="Script" uid="uid://b0evu7isgu6f" path="res://Mobs/trigger.gd" id="3_0phs7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6xrn"]
@@ -13,9 +13,9 @@ position = Vector2(0.999996, -0.499996)
 shape = SubResource("RectangleShape2D_v6xrn")
 
 [node name="Sprite2D" type="Sprite2D" parent="MainCollision"]
-position = Vector2(-0.999997, 0.499996)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_ba8gm")
+position = Vector2(37.75, 6.25)
+scale = Vector2(0.449286, 0.449286)
+texture = ExtResource("1_gjhd3")
 
 [node name="Trigger" type="Area2D" parent="." groups=["doors"]]
 position = Vector2(0.999996, -0.499996)

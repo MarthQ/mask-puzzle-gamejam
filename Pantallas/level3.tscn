@@ -1,0 +1,109 @@
+[gd_scene load_steps=18 format=4 uid="uid://coc34qro5pf02"]
+
+[ext_resource type="Script" uid="uid://xpunenelh64o" path="res://Pantallas/level_3.gd" id="1_1ve31"]
+[ext_resource type="Texture2D" uid="uid://k00fynb7hntp" path="res://BGs/fondo 1.png" id="2_0y2th"]
+[ext_resource type="PackedScene" uid="uid://qxn63jj5xxj6" path="res://Mobs/Boton.tscn" id="3_u5s4s"]
+[ext_resource type="PackedScene" uid="uid://cipk5ingdrowo" path="res://Mobs/PuertaBoton.tscn" id="4_sed8w"]
+[ext_resource type="PackedScene" uid="uid://c8tpdoj7qtnpr" path="res://Mobs/door.tscn" id="5_83rvv"]
+[ext_resource type="PackedScene" uid="uid://bdvsa1ulhk8ot" path="res://Mobs/DartTrapRight.tscn" id="6_rq5q3"]
+[ext_resource type="PackedScene" uid="uid://b8geatdec1evy" path="res://Mobs/DartTrapLeft.tscn" id="7_lkwmv"]
+[ext_resource type="PackedScene" uid="uid://dvrbnihi0gwws" path="res://Mobs/key.tscn" id="9_ot73s"]
+[ext_resource type="PackedScene" uid="uid://b1w0g200k2qhl" path="res://Mobs/exitdoor.tscn" id="12_k6abr"]
+[ext_resource type="PackedScene" uid="uid://6kf2gettecg4" path="res://Jugadores/TeleportHandler.tscn" id="13_cvh0i"]
+[ext_resource type="PackedScene" uid="uid://0qdha5ipf358" path="res://Jugadores/playerHawk.tscn" id="14_t42wa"]
+[ext_resource type="PackedScene" uid="uid://bcfnptef1mgeq" path="res://Jugadores/playerTiger.tscn" id="15_psax3"]
+[ext_resource type="PackedScene" uid="uid://c7p7ay1nfkxus" path="res://Mobs/Spikes.tscn" id="16_y0kay"]
+[ext_resource type="Texture2D" uid="uid://bmo0x6gx7a3il" path="res://Sprites/tiles/tileset2.png" id="17_2dlos"]
+[ext_resource type="AudioStream" uid="uid://nfj16nc3kg01" path="res://Musica/ggj multiplayer gameplaay.ogg" id="18_nxtsb"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cgwuc"]
+texture = ExtResource("17_2dlos")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, 32, -32, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_nwlaa"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_cgwuc")
+
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_1ve31")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(962, 544)
+texture = ExtResource("2_0y2th")
+metadata/_edit_lock_ = true
+
+[node name="TeleportHandler" parent="." instance=ExtResource("13_cvh0i")]
+
+[node name="PlayerHawk" parent="TeleportHandler" instance=ExtResource("14_t42wa")]
+position = Vector2(1802, 910)
+
+[node name="PlayerTiger" parent="TeleportHandler" instance=ExtResource("15_psax3")]
+position = Vector2(905, 931)
+
+[node name="Door" parent="." instance=ExtResource("5_83rvv")]
+position = Vector2(797, 900)
+scale = Vector2(2, 2.4)
+
+[node name="DartTrap" parent="." instance=ExtResource("7_lkwmv")]
+position = Vector2(1860, 586)
+
+[node name="DartTrap2" parent="." instance=ExtResource("6_rq5q3")]
+position = Vector2(119, 706)
+scale = Vector2(1.8, 1.8)
+
+[node name="Spikes" parent="." instance=ExtResource("16_y0kay")]
+position = Vector2(1685, 301)
+
+[node name="Spikes2" parent="." instance=ExtResource("16_y0kay")]
+position = Vector2(1643, 301)
+
+[node name="Spikes3" parent="." instance=ExtResource("16_y0kay")]
+position = Vector2(1601, 301)
+
+[node name="Spikes4" parent="." instance=ExtResource("16_y0kay")]
+position = Vector2(1560, 301)
+
+[node name="Spikes5" parent="." instance=ExtResource("16_y0kay")]
+position = Vector2(1518, 301)
+
+[node name="Spikes6" parent="." instance=ExtResource("16_y0kay")]
+position = Vector2(1477, 301)
+
+[node name="Spikes7" parent="." instance=ExtResource("16_y0kay")]
+position = Vector2(1436, 301)
+
+[node name="Key" parent="." instance=ExtResource("9_ot73s")]
+position = Vector2(1823, 242)
+
+[node name="Key2" parent="." instance=ExtResource("9_ot73s")]
+position = Vector2(192, 936)
+
+[node name="Exitdoor" parent="." instance=ExtResource("12_k6abr")]
+position = Vector2(176, 139)
+
+[node name="Boton" parent="." instance=ExtResource("3_u5s4s")]
+position = Vector2(1102, 566)
+scale = Vector2(1.4, 1.4)
+
+[node name="PuertaBoton" parent="Boton" instance=ExtResource("4_sed8w")]
+position = Vector2(-542.143, 266.429)
+scale = Vector2(0.642857, 0.642857)
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAABAAAQAAAAAAAAABABAAAQAAAAAAAAACABAAAQAAAAAAAAADABAAAQAAAAAAAAAEABAAAQAAAAAAAAAFABAAAQAAAAAAAAAGABAAAQAAAAAAAAAHABAAAQAAAAAAAAAIABAAAQAAAAAAAAAJABAAAQAAAAAAAAAKABAAAQAAAAAAAAALABAAAQAAAAAAAAAMABAAAQAAAAAAAAANABAAAQAAAAAAAAAOABAAAQAAAAAAAAAPABAAAQAAAAAAAAAQABAAAQAAAAAAAAARABAAAQAAAAAAAAASABAAAQAAAAAAAAATABAAAQAAAAAAAAAUABAAAQAAAAAAAAAVABAAAQAAAAAAAAAWABAAAQAAAAAAAAAXABAAAQAAAAAAAAAYABAAAQAAAAAAAAAZABAAAQAAAAAAAAAaABAAAQAAAAAAAAAbABAAAQAAAAAAAAAcABAAAQAAAAAAAAAdABAAAQAAAAAAAAAeABAAAQAAAAAAAAAeAA8AAQAAAAAAAAAeAA4AAQAAAAAAAAAeAA0AAQAAAAAAAAAeAAwAAQAAAAAAAAAeAAsAAQAAAAAAAAAeAAoAAQAAAAAAAAAeAAkAAQAAAAAAAAAeAAgAAQAAAAAAAAAeAAcAAQAAAAAAAAAeAAYAAQAAAAAAAAAeAAUAAQAAAAAAAAAeAAQAAQAAAAAAAAAeAAMAAQAAAAAAAAAeAAIAAQAAAAAAAAAeAAEAAQAAAAAAAAAeAAAAAQAAAAAAAAAeAP//AQAAAAAAAAAdAP//AQAAAAAAAAAcAP//AQAAAAAAAAAbAP//AQAAAAAAAAAaAP//AQAAAAAAAAAZAP//AQAAAAAAAAAYAP//AQAAAAAAAAAXAP//AQAAAAAAAAAWAP//AQAAAAAAAAAVAP//AQAAAAAAAAAUAP//AQAAAAAAAAATAP//AQAAAAAAAAASAP//AQAAAAAAAAARAP//AQAAAAAAAAAQAP//AQAAAAAAAAAPAP//AQAAAAAAAAAOAP//AQAAAAAAAAANAP//AQAAAAAAAAAMAP//AQAAAAAAAAALAP//AQAAAAAAAAAKAP//AQAAAAAAAAAJAP//AQAAAAAAAAAIAP//AQAAAAAAAAAHAP//AQAAAAAAAAAGAP//AQAAAAAAAAAFAP//AQAAAAAAAAAEAP//AQAAAAAAAAADAP//AQAAAAAAAAACAP//AQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAcAAQAAAAAAAAAAAAgAAQAAAAAAAAAAAAkAAQAAAAAAAAAAAAoAAQAAAAAAAAAAAAsAAQAAAAAAAAAAAAwAAQAAAAAAAAAAAA0AAQAAAAAAAAAAAA4AAQAAAAAAAAAAAA8AAQAAAAAAAAAPAA8AAQAAAAAAAAAPAA4AAQAAAAAAAAAPAA0AAQAAAAAAAAAPAAwAAQAAAAAAAAAPAAsAAQAAAAAAAAAPAAoAAQAAAAAAAAAPAAkAAQAAAAAAAAAPAAgAAQAAAAAAAAAPAAcAAQAAAAAAAAAPAAYAAQAAAAAAAAAPAAUAAQAAAAAAAAAZAAoAAQABAAEAAAAaAAoAAQAAAAAAAAAbAAoAAQAAAAAAAAAcAAoAAQAAAAAAAAAdAAoAAQAAAAAAAAABAAwAAQAAAAAAAAACAAwAAQAAAAAAAAADAAwAAQAAAAAAAAAEAAwAAQAAAAAAAAAFAAwAAQAAAAEAAAABAAkAAQAAAAAAAAACAAkAAQAAAAEAAAALAAcAAQABAAEAAAAMAAcAAQAAAAAAAAANAAcAAQAAAAAAAAAOAAcAAQAAAAAAAAARAAkAAQAAAAAAAAAQAAkAAQAAAAAAAAASAAkAAQAAAAEAAAAQAA0AAQAAAAAAAAARAA0AAQAAAAAAAAASAA0AAQAAAAAAAAATAA0AAQAAAAAAAAAUAA0AAQAAAAEAAAAMAAYAAQABAAEAAAANAAUAAQABAAEAAAAOAAUAAQAAAAAAAAAOAAYAAQAAAAAAAAANAAYAAQAAAAAAAAAMAAoAAQAAAAAAAAAMAAkAAQAAAAAAAAAMAAgAAQAAAAAAAAANAAgAAQAAAAAAAAAOAAgAAQAAAAAAAAAOAAkAAQAAAAAAAAANAAkAAQAAAAAAAAANAAoAAQAAAAAAAAAOAAoAAQAAAAAAAAANAAsAAQAAAAAAAAAOAAsAAQAAAAAAAAALAAgAAQAAAAAAAAALAAkAAQAAAAAAAAAMAAsAAQAAAAAAAAAKAAgAAQABAAEAAAAKAAkAAQAAAAAAAAALAAoAAQAAAAAAAAABAAQAAQABAAAAAAACAAQAAQABAAAAAAADAAQAAQABAAAAAAAEAAQAAQABAAAAAAAFAAQAAQAAAAEAAAAUAAUAAQABAAEAAAAVAAUAAQAAAAAAAAAWAAUAAQAAAAAAAAAXAAUAAQAAAAAAAAAYAAUAAQAAAAAAAAAZAAUAAQAAAAAAAAAaAAUAAQAAAAAAAAAbAAUAAQAAAAAAAAAcAAUAAQAAAAAAAAAdAAUAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_nwlaa")
+rendering_quadrant_size = 128
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_nxtsb")
+volume_db = 3.0
+autoplay = true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://e4uvs54hmvhq"
+path="res://.godot/imported/ggj multiplayer pasos.ogg-351ef10fff08c055c3bdeb28409d5235.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sonidos/ggj multiplayer pasos.ogg"
+dest_files=["res://.godot/imported/ggj multiplayer pasos.ogg-351ef10fff08c055c3bdeb28409d5235.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

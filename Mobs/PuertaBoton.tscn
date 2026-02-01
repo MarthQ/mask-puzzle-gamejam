@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cipk5ingdrowo"]
 
-[ext_resource type="Texture2D" uid="uid://f25rrnm46vkf" path="res://Sprites/buttondoor.png" id="1_vdo7h"]
+[ext_resource type="Texture2D" uid="uid://bmb41b5cesrac" path="res://Sprites/mobs/puerta normal.png" id="1_vdo7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0xnu"]
 size = Vector2(79, 222)
@@ -12,6 +12,6 @@ position = Vector2(1.5, -11)
 shape = SubResource("RectangleShape2D_p0xnu")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-position = Vector2(39.5, -22)
-scale = Vector2(0.6, 0.6)
+position = Vector2(-62.5, 9)
+scale = Vector2(0.952857, 0.952857)
 texture = ExtResource("1_vdo7h")

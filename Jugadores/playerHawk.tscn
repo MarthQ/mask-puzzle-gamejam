@@ -1,12 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://0qdha5ipf358"]
+[gd_scene load_steps=20 format=3 uid="uid://0qdha5ipf358"]
 
 [ext_resource type="Script" uid="uid://cuun8q3qbived" path="res://Jugadores/player1.gd" id="1_onrkg"]
 [ext_resource type="Script" uid="uid://dm3db04joatpw" path="res://Jugadores/player1_input_actions.gd" id="2_hqtel"]
 [ext_resource type="Script" uid="uid://dapnlmeaq3ikc" path="res://Jugadores/death.gd" id="3_465xq"]
 [ext_resource type="Script" uid="uid://pvvoy4sdm2xk" path="res://Jugadores/facing.gd" id="3_hqtel"]
-[ext_resource type="Texture2D" uid="uid://kadkojkfvrf1" path="res://Sprites/prota 1.png" id="4_sweqy"]
-[ext_resource type="Texture2D" uid="uid://bc8xo7oa1opo7" path="res://Sprites/prota 1 enmascarado.png" id="5_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://q54e4kv1ruxf" path="res://Sprites/player_eagle/prota eagle idle.png" id="5_465xq"]
+[ext_resource type="Texture2D" uid="uid://bs5dsqceymcdl" path="res://Sprites/player_eagle/prota eagle mask idle.png" id="5_lg8li"]
 [ext_resource type="Script" uid="uid://cgppdfhk0afjf" path="res://Jugadores/area_abrir.gd" id="6_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://cfgrjc5qyw7q8" path="res://Sprites/player_eagle/prota eagle walk 3.png" id="6_le537"]
+[ext_resource type="Texture2D" uid="uid://dtj01rfkg8nqr" path="res://Sprites/player_eagle/prota eagle mask walk 3.png" id="6_uvpwd"]
+[ext_resource type="Texture2D" uid="uid://ckc0u20jbswss" path="res://Sprites/player_eagle/prota eagle mask walk 1.png" id="7_gxafv"]
+[ext_resource type="Texture2D" uid="uid://cpcfw0vykvgbf" path="res://Sprites/player_eagle/prota eagle mask walk 2.png" id="8_e4cf1"]
+[ext_resource type="Texture2D" uid="uid://baxfqw7cfhc5m" path="res://Sprites/player_eagle/prota eagle walk 1.png" id="8_qg1p0"]
+[ext_resource type="Texture2D" uid="uid://djpfiabfw1pm7" path="res://Sprites/player_eagle/prota eagle walk 2.png" id="9_tfub2"]
 
 [sub_resource type="Resource" id="Resource_dguh5"]
 script = ExtResource("2_hqtel")
@@ -17,32 +23,92 @@ down = &"P1 Down"
 metadata/_custom_type_script = "uid://db8p3afkmobk1"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sweqy"]
-radius = 70.0
-height = 322.0
+radius = 88.0
+height = 376.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1jxqw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_sweqy")
+"texture": ExtResource("5_465xq")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_2hs0m")
+"texture": ExtResource("5_lg8li")
 }],
 "loop": true,
-"name": &"new_animation",
+"name": &"idle Mask",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_le537")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_uvpwd")
+}],
+"loop": true,
+"name": &"jumping mask",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_qg1p0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tfub2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_le537")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tfub2")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_gxafv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_e4cf1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uvpwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_e4cf1")
+}],
+"loop": true,
+"name": &"walking mask",
+"speed": 7.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sweqy"]
-radius = 176.045
+radius = 216.0
+
+[sub_resource type="Curve" id="Curve_465xq"]
+_data = [Vector2(0.181818, 0.0674158), 0.0, 0.0, 0, 0, Vector2(0.505682, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_46bbh"]
+_limits = [0.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(0.380682, 44.9438), 0.0, 0.0, 0, 0, Vector2(0.659091, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Player" type="CharacterBody2D" groups=["player1"]]
+position = Vector2(12, -2)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_onrkg")
 actions = SubResource("Resource_dguh5")
@@ -62,8 +128,10 @@ shape = SubResource("CapsuleShape2D_sweqy")
 script = ExtResource("3_hqtel")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Facing"]
-scale = Vector2(0.5, 0.5)
+position = Vector2(133.05, 69.4929)
+scale = Vector2(0.808428, 0.778592)
 sprite_frames = SubResource("SpriteFrames_1jxqw")
+animation = &"idle"
 
 [node name="AreaMask" type="Area2D" parent="."]
 script = ExtResource("6_2hs0m")
@@ -71,6 +139,25 @@ script = ExtResource("6_2hs0m")
 [node name="CollisionMask" type="CollisionShape2D" parent="AreaMask"]
 shape = SubResource("CircleShape2D_sweqy")
 disabled = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 150
+one_shot = true
+speed_scale = 20.0
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 103.06
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 20)
+initial_velocity_min = 191.92
+initial_velocity_max = 272.73
+scale_amount_min = 5.0
+scale_amount_max = 40.0
+scale_amount_curve = SubResource("Curve_465xq")
+color = Color(0.907177, 0, 0.172275, 1)
+anim_speed_curve = SubResource("Curve_46bbh")
 
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
 [connection signal="body_entered" from="Hurtbox" to="Hurtbox" method="_on_body_entered"]

@@ -1,10 +1,25 @@
 [gd_scene load_steps=7 format=3 uid="uid://b4it3b77bmjyt"]
 
-[ext_resource type="Texture2D" uid="uid://devfpe7wtpc8u" path="res://Sprites/platform.png" id="1_0noku"]
 [ext_resource type="Script" uid="uid://c8jdg06jipkjn" path="res://Mobs/platform.gd" id="1_qfqaq"]
+[ext_resource type="Texture2D" uid="uid://j3y8galpxawx" path="res://Sprites/mobs/plataforma re copada.png" id="2_qfqaq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfqaq"]
-size = Vector2(177, 38)
+size = Vector2(149, 38)
+
+[sub_resource type="Animation" id="Animation_88va5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_qfqaq"]
 resource_name = "platform_move"
@@ -23,21 +38,6 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, -317)]
 }
 
-[sub_resource type="Animation" id="Animation_88va5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a1784"]
 _data = {
 &"RESET": SubResource("Animation_88va5"),
@@ -50,12 +50,12 @@ _data = {
 script = ExtResource("1_qfqaq")
 
 [node name="Sprite2D" type="Sprite2D" parent="PlatformBody"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_0noku")
-metadata/_edit_lock_ = true
+position = Vector2(205, -11)
+scale = Vector2(0.927143, 0.927143)
+texture = ExtResource("2_qfqaq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformBody"]
-position = Vector2(-0.5, 0)
+position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_qfqaq")
 metadata/_edit_lock_ = true
 

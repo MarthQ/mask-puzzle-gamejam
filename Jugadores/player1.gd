@@ -7,6 +7,7 @@ extends PlatformerCharacter2D
 @export var is_masked = false
 var coyote_timer: float  = 0
 var coyote_time_duration: float = 0.2
+
 func _physics_process(delta: float) -> void:
 	
 	var direction = Input.get_vector(actions.left, actions.right, actions.up, actions.down)
@@ -14,12 +15,45 @@ func _physics_process(delta: float) -> void:
 	velocity.x = move_speed * direction.x
 	_apply_gravity(delta)
 	
-	if velocity.x < 0:
-		$Facing.scale.x = -1
-	if velocity.x > 0:
-		$Facing.scale.x = 1
-		
+	if !is_masked:
+		if velocity.x < 0:
+			$Facing.scale.x = -1
+			$Facing/AnimatedSprite2D.play("walking")
+		if velocity.x > 0:
+			$Facing.scale.x = 1
+			$Facing/AnimatedSprite2D.play("walking")
+		if velocity.x == 0:
+			$Facing/AnimatedSprite2D.play("idle")
+		if !is_on_floor():
+			$Facing/AnimatedSprite2D.play("jumping")
+	if is_masked:
+		if velocity.x < 0:
+			$Facing.scale.x = -1
+			$Facing/AnimatedSprite2D.play("walking mask")
+		if velocity.x > 0:
+			$Facing.scale.x = 1
+			$Facing/AnimatedSprite2D.play("walking mask")
+		if velocity.x == 0:
+			$Facing/AnimatedSprite2D.play("idle Mask")
+		if !is_on_floor():
+			$Facing/AnimatedSprite2D.play("jumping mask")
+	
 	move_and_slide()
+	
+	if !is_masked:
+		if Input.is_action_pressed(actions.left) or Input.is_action_pressed(actions.right):
+			$Facing/AnimatedSprite2D.play("walking")
+		if Input.is_action_just_released(actions.left) or Input.is_action_just_released(actions.right):
+			$Facing/AnimatedSprite2D.play("idle")
+	if is_masked:
+		if Input.is_action_pressed(actions.left) or Input.is_action_pressed(actions.right):
+			$Facing/AnimatedSprite2D.play("walking mask")
+		if Input.is_action_just_released(actions.left) or Input.is_action_just_released(actions.right):
+			$Facing/AnimatedSprite2D.play("idle Mask")
+	
+	if Input.is_action_just_pressed(actions.down):
+		SoundManager.get_node("Channel1").stream = load("res://Sonidos/ggj multiplayer mascara.ogg")
+		SoundManager.get_node("Channel1").play()
 	
 	if Input.is_action_pressed(actions.down):
 		is_masked = true
@@ -28,7 +62,7 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_released(actions.down):
 		is_masked = false
-		$Facing/AnimatedSprite2D.play("default")
+		$Facing/AnimatedSprite2D.play("idle")
 		$AreaMask/CollisionMask.disabled = true
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(actions.up):
@@ -40,6 +74,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func try_jump() -> bool:
 	if is_on_floor() or coyote_timer > 0:
+		SoundManager.get_node("Channel1").stream = load("res://Sonidos/ggj multiplayer calvo.ogg")
+		SoundManager.get_node("Channel1").play()
 		_jump()
 		return true
 	return false

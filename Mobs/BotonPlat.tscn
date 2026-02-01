@@ -1,24 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://o5cju1070a4k"]
 
 [ext_resource type="Script" uid="uid://cs4m4jwmy7s4g" path="res://Mobs/boton_plat.gd" id="1_ehwau"]
-[ext_resource type="Texture2D" uid="uid://b0b0u1bnuvfl5" path="res://Sprites/botonPlat.png" id="2_7ot3j"]
+[ext_resource type="Texture2D" uid="uid://bc5wtqa2o1ya7" path="res://Sprites/mobs/boton verdisimo.png" id="2_ehwau"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xp6a5"]
-radius = 34.4819
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ot3j"]
+size = Vector2(126, 20)
 
 [node name="Boton" type="Node2D"]
 script = ExtResource("1_ehwau")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-7, 14)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_7ot3j")
+position = Vector2(175, 118)
+scale = Vector2(0.792857, 0.792857)
+texture = ExtResource("2_ehwau")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-5, -2)
-shape = SubResource("CircleShape2D_xp6a5")
+position = Vector2(-2, -2)
+shape = SubResource("RectangleShape2D_7ot3j")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

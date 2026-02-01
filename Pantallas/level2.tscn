@@ -1,0 +1,124 @@
+[gd_scene load_steps=19 format=4 uid="uid://cwt1wdrknoxgm"]
+
+[ext_resource type="Script" uid="uid://bugg32placsfw" path="res://Pantallas/level_2.gd" id="1_b8ak8"]
+[ext_resource type="PackedScene" uid="uid://qxn63jj5xxj6" path="res://Mobs/Boton.tscn" id="1_uqxdv"]
+[ext_resource type="Texture2D" uid="uid://k00fynb7hntp" path="res://BGs/fondo 1.png" id="2_d5tdq"]
+[ext_resource type="PackedScene" uid="uid://cipk5ingdrowo" path="res://Mobs/PuertaBoton.tscn" id="2_wujqx"]
+[ext_resource type="PackedScene" uid="uid://c8tpdoj7qtnpr" path="res://Mobs/door.tscn" id="3_13cot"]
+[ext_resource type="PackedScene" uid="uid://bdvsa1ulhk8ot" path="res://Mobs/DartTrapRight.tscn" id="4_wgsbr"]
+[ext_resource type="PackedScene" uid="uid://6kf2gettecg4" path="res://Jugadores/TeleportHandler.tscn" id="6_s10ay"]
+[ext_resource type="PackedScene" uid="uid://0qdha5ipf358" path="res://Jugadores/playerHawk.tscn" id="7_6xtgf"]
+[ext_resource type="PackedScene" uid="uid://b4it3b77bmjyt" path="res://Mobs/platform.tscn" id="7_26ivm"]
+[ext_resource type="PackedScene" uid="uid://dvrbnihi0gwws" path="res://Mobs/key.tscn" id="7_ylcod"]
+[ext_resource type="PackedScene" uid="uid://bcfnptef1mgeq" path="res://Jugadores/playerTiger.tscn" id="8_ylcod"]
+[ext_resource type="PackedScene" uid="uid://b1w0g200k2qhl" path="res://Mobs/exitdoor.tscn" id="9_6xtgf"]
+[ext_resource type="PackedScene" uid="uid://c7p7ay1nfkxus" path="res://Mobs/Spikes.tscn" id="9_b8ak8"]
+[ext_resource type="PackedScene" uid="uid://o5cju1070a4k" path="res://Mobs/BotonPlat.tscn" id="10_ylcod"]
+[ext_resource type="AudioStream" uid="uid://nfj16nc3kg01" path="res://Musica/ggj multiplayer gameplaay.ogg" id="18_d5tdq"]
+[ext_resource type="Texture2D" uid="uid://bmo0x6gx7a3il" path="res://Sprites/tiles/tileset2.png" id="19_p5ma5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cgwuc"]
+texture = ExtResource("19_p5ma5")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, 32, -32, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_nwlaa"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_cgwuc")
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_b8ak8")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(962, 536)
+texture = ExtResource("2_d5tdq")
+metadata/_edit_lock_ = true
+
+[node name="Boton" parent="." instance=ExtResource("1_uqxdv")]
+position = Vector2(1724, 1018)
+scale = Vector2(1.8, 1.8)
+
+[node name="PuertaBoton" parent="Boton" instance=ExtResource("2_wujqx")]
+position = Vector2(-227.222, -505.556)
+scale = Vector2(0.5, 0.5)
+
+[node name="Door" parent="." instance=ExtResource("3_13cot")]
+position = Vector2(601, 899)
+scale = Vector2(2.4, 2.4)
+
+[node name="Door2" parent="." instance=ExtResource("3_13cot")]
+position = Vector2(1310, 355)
+scale = Vector2(1.8, 1.8)
+
+[node name="DartTrap" parent="." instance=ExtResource("4_wgsbr")]
+position = Vector2(694, 622)
+scale = Vector2(2, 2)
+
+[node name="Key" parent="." instance=ExtResource("7_ylcod")]
+position = Vector2(1363, 609)
+
+[node name="Key2" parent="." instance=ExtResource("7_ylcod")]
+position = Vector2(284, 124)
+
+[node name="Exitdoor" parent="." instance=ExtResource("9_6xtgf")]
+position = Vector2(466, 590)
+scale = Vector2(0.85, 0.85)
+
+[node name="TeleportHandler" parent="." instance=ExtResource("6_s10ay")]
+
+[node name="PlayerHawk" parent="TeleportHandler" instance=ExtResource("7_6xtgf")]
+position = Vector2(887, 929)
+
+[node name="PlayerTiger" parent="TeleportHandler" instance=ExtResource("8_ylcod")]
+position = Vector2(1745, 121)
+
+[node name="Spikes2" parent="." instance=ExtResource("9_b8ak8")]
+position = Vector2(1329, 1008)
+
+[node name="Spikes3" parent="." instance=ExtResource("9_b8ak8")]
+position = Vector2(1286, 1008)
+
+[node name="Spikes4" parent="." instance=ExtResource("9_b8ak8")]
+position = Vector2(1243, 1008)
+
+[node name="Spikes5" parent="." instance=ExtResource("9_b8ak8")]
+position = Vector2(1199, 1008)
+
+[node name="Spikes6" parent="." instance=ExtResource("9_b8ak8")]
+position = Vector2(1372, 1008)
+
+[node name="Spikes7" parent="." instance=ExtResource("9_b8ak8")]
+position = Vector2(1414, 1008)
+
+[node name="Spikes8" parent="." instance=ExtResource("9_b8ak8")]
+position = Vector2(1457, 1008)
+
+[node name="Spikes9" parent="." instance=ExtResource("9_b8ak8")]
+position = Vector2(1499, 1008)
+
+[node name="Spikes" parent="." instance=ExtResource("9_b8ak8")]
+position = Vector2(1157, 1008)
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("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")
+tile_set = SubResource("TileSet_nwlaa")
+rendering_quadrant_size = 128
+
+[node name="Boton2" parent="." instance=ExtResource("10_ylcod")]
+position = Vector2(1095, 695)
+
+[node name="Platform" parent="Boton2" instance=ExtResource("7_26ivm")]
+position = Vector2(-953, 349)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_d5tdq")
+volume_db = 3.0
+autoplay = true

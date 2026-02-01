@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cbkdwuyh1oj5o"]
+
+[node name="SoundManager" type="Node2D"]
+
+[node name="Channel1" type="AudioStreamPlayer" parent="."]
+volume_db = 5.0
+
+[node name="Channel2" type="AudioStreamPlayer" parent="."]
+volume_db = 5.0
+
+[node name="Channel3" type="AudioStreamPlayer" parent="."]
+volume_db = 10.0
+
+[node name="Channel4" type="AudioStreamPlayer" parent="."]
+volume_db = 5.0

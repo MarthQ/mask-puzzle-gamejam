@@ -45,7 +45,7 @@ autoplay = true
 visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="ControlesTab"]
-position = Vector2(963, 543)
+position = Vector2(958, 543)
 texture = ExtResource("4_rxnwf")
 
 [node name="Volver" type="Button" parent="ControlesTab"]
@@ -55,6 +55,36 @@ offset_right = 1222.0
 offset_bottom = 961.0
 theme_override_font_sizes/font_size = 60
 text = "Volver al Menú"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ControlesTab"]
+offset_left = 626.0
+offset_top = 640.0
+offset_right = 1250.0
+offset_bottom = 843.0
+theme_override_font_sizes/mono_font_size = 13
+theme_override_font_sizes/normal_font_size = 43
+text = "Activar las máscaras a la vez revela su verdadero poder..."
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ControlesTab"]
+offset_left = -134.0
+offset_top = 812.0
+offset_right = 490.0
+offset_bottom = 1015.0
+theme_override_font_sizes/mono_font_size = 13
+theme_override_font_sizes/normal_font_size = 43
+text = "Ágil y alto! =>"
+horizontal_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ControlesTab"]
+offset_left = 1334.0
+offset_top = 801.0
+offset_right = 1958.0
+offset_bottom = 1004.0
+theme_override_font_sizes/mono_font_size = 13
+theme_override_font_sizes/normal_font_size = 43
+text = "<= Lento..."
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Controls" to="." method="_on_controls_pressed"]

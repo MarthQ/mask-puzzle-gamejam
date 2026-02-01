@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bcfnptef1mgeq"]
+[gd_scene load_steps=21 format=3 uid="uid://bcfnptef1mgeq"]
 
 [ext_resource type="Script" uid="uid://bd8h4y3ghtrxg" path="res://Jugadores/player2.gd" id="1_4cor4"]
 [ext_resource type="Script" uid="uid://d3fy0jipyxos1" path="res://Jugadores/player2_input_actions.gd" id="2_yuhi3"]
@@ -21,6 +21,10 @@ right = &"P2 Right"
 up = &"P2 Up"
 down = &"P2 Down"
 metadata/_custom_type_script = "uid://bqg2vwbe72ef7"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_udvhx"]
+radius = 89.0
+height = 377.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sweqy"]
 radius = 88.0
@@ -120,7 +124,7 @@ collision_layer = 0
 script = ExtResource("3_plwar")
 
 [node name="HurtArea" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource("CapsuleShape2D_sweqy")
+shape = SubResource("CapsuleShape2D_udvhx")
 
 [node name="CollisionPlayer" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_sweqy")

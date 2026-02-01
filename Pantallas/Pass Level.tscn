@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://lhg5pblk0eq"]
 
-[ext_resource type="Script" uid="uid://brewr5vb0rntl" path="res://Pantallas/pass_level_1.gd" id="1_uc7xw"]
-[ext_resource type="AudioStream" uid="uid://bsydqq1q2qdvs" path="res://Musica/ggj multiplayer win.ogg" id="2_fu17s"]
-[ext_resource type="Texture2D" uid="uid://bf20jip75o2b4" path="res://BGs/vacio.png" id="2_nixem"]
+[ext_resource type="Script" uid="uid://brewr5vb0rntl" path="res://Pantallas/pass_level_1.gd" id="1_j803y"]
+[ext_resource type="Texture2D" uid="uid://bf20jip75o2b4" path="res://BGs/vacio.png" id="2_g432h"]
+[ext_resource type="AudioStream" uid="uid://bsydqq1q2qdvs" path="res://Musica/ggj multiplayer win.ogg" id="3_sfrdt"]
 
 [node name="Pass Level1" type="Node2D"]
-script = ExtResource("1_uc7xw")
+script = ExtResource("1_j803y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(962, 542)
-texture = ExtResource("2_nixem")
+texture = ExtResource("2_g432h")
 
 [node name="Next Level" type="Button" parent="."]
 offset_left = 673.0
@@ -42,7 +42,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_fu17s")
+stream = ExtResource("3_sfrdt")
 volume_db = 5.0
 autoplay = true
 

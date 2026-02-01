@@ -9,4 +9,4 @@ func _process(delta: float) -> void:
 		$Exitdoor/Sprite2D.scale = Vector2(1.243, 1.243)
 	if Globals.keys == 2 and Globals.player1ready and Globals.player2ready:
 		Globals.currentLevel = "res://Pantallas/level2.tscn"
-		get_tree().change_scene_to_file("res://Pantallas/Pass Level1.tscn")
+		get_tree().change_scene_to_file("res://Pantallas/Pass Level.tscn")

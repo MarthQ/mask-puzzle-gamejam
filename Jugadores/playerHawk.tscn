@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://0qdha5ipf358"]
+[gd_scene load_steps=21 format=3 uid="uid://0qdha5ipf358"]
 
 [ext_resource type="Script" uid="uid://cuun8q3qbived" path="res://Jugadores/player1.gd" id="1_onrkg"]
 [ext_resource type="Script" uid="uid://dm3db04joatpw" path="res://Jugadores/player1_input_actions.gd" id="2_hqtel"]
@@ -23,6 +23,10 @@ down = &"P1 Down"
 metadata/_custom_type_script = "uid://db8p3afkmobk1"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sweqy"]
+radius = 89.0
+height = 377.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lg8li"]
 radius = 88.0
 height = 376.0
 
@@ -122,7 +126,7 @@ script = ExtResource("3_465xq")
 shape = SubResource("CapsuleShape2D_sweqy")
 
 [node name="CollisionPlayer" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_sweqy")
+shape = SubResource("CapsuleShape2D_lg8li")
 
 [node name="Facing" type="Node2D" parent="."]
 script = ExtResource("3_hqtel")
